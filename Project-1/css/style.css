@@ -1,0 +1,50 @@
+body{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+main{
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    cursor: pointer;
+    color: #867806;
+}
+
+i {
+    margin: 0 5px;
+    font-size: 28px;
+}
+
+span{
+    margin: 10px 0 0 0;
+}
+
+.main-header{
+    padding: 0 20px;
+    background: linear-gradient(to bottom, #f7df1e, #fefdee);
+    align-items: center;
+}
+
+.main-footer{
+    padding: 20px;
+    margin: 20px 0 0 0;
+    background: linear-gradient(to bottom, #fefdee, #f7df1e);
+    align-items: center;
+}
+
+.goods-item{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 0 0;
+}
+
+.goods-item:nth-child(3n+3){
+   margin: 0;
+}
