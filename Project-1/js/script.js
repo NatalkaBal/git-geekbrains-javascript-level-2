@@ -35,8 +35,7 @@ class contactsList {
         for (let elem of document.querySelectorAll('.main-contact')) {
             elem.innerHTML = listHtml;
         }
-
-
+        
         mainHeader.style.display = 'flex';
         mainHeader.style.justifyContent = 'space-between';
         mainHeader.style.alignItems = 'center';
@@ -106,3 +105,43 @@ const list = new GoodsList();
 list.fetchGoods();
 list.render();
 list.summaGoods();
+
+class basketItem {
+    constructor(title, price) {
+        this.title = title;
+        this.price = price;
+    }
+
+    addBasket(){
+
+    }
+
+    deleteBasket(){
+
+    }
+
+    render() {
+        return return `
+        <div id = "basket-item" class="basket-item">
+            <h3>${this.title}</h3>
+            <span>Цена: ${this.price}</span>
+        </div>
+    `
+    }
+}
+
+class basketList {
+    constructor(){
+        this.basketArray = [];
+    }
+
+    render() {
+        let listHtml = '';
+        this.basketArray.forEach(({ title, price }) => {
+            const baskItem = new basketItem(title, price);
+            listHtml += baskItem.render();
+        });
+    }
+}
+
+const basketlist = new basketList();
