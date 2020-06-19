@@ -121,7 +121,7 @@ class basketItem {
     }
 
     render() {
-        return return `
+        return `
         <div id = "basket-item" class="basket-item">
             <h3>${this.title}</h3>
             <span>Цена: ${this.price}</span>
