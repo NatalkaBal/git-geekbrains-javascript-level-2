@@ -4,13 +4,6 @@ const mainHeader = document.getElementById('main-header');
 const mainFooter = document.getElementById('main-footer');
 const goodsListSection = document.getElementById('goods-list');
 
-const contactsArray = [
-    { link: '#', img_class_fontawesome: "fab fa-facebook-square"},
-    { link: '#', img_class_fontawesome: 'fab fa-twitter-square'},
-    { link: '#', img_class_fontawesome: 'fab fa-instagram-square'},
-    { link: '#', img_class_fontawesome: 'fab fa-vk'},
-];
-
 class contactsItem {
     constructor(link, img_class_fontawesome) {
         this.link = link;
