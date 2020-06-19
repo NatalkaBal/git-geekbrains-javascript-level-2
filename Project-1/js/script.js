@@ -142,6 +142,10 @@ class basketList {
             listHtml += baskItem.render();
         });
     }
+
+    sumItem(){
+        
+    }
 }
 
 const basketlist = new basketList();
