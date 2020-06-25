@@ -30,6 +30,8 @@ span{
     padding: 0 20px;
     background: linear-gradient(to bottom, #f7df1e, #fefdee);
     align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-footer{
@@ -37,6 +39,8 @@ span{
     margin: 20px 0 0 0;
     background: linear-gradient(to bottom, #fefdee, #f7df1e);
     align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .goods-item{
