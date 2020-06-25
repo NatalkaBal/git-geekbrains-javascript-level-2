@@ -81,7 +81,7 @@ class GoodsItem {
         <div id = "goods-item" class="goods-item">
             <h3>${this.product_name}</h3>
             <span>Цена: ${this.price}</span>
-            <button id = "'btd_${this.id_product}" >Добавить в корзину</button>
+            <button id = "'btd_${this.id_product}">Добавить в корзину</button>
         </div>
         `
     }
@@ -120,7 +120,9 @@ class GoodsItem {
     list.fetchGoods(() => {
         list.render();
     });
-    
+
+
+
 
 
 
