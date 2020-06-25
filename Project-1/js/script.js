@@ -120,5 +120,8 @@ class GoodsItem {
     list.fetchGoods(() => {
         list.render();
     });
+    
+
+
 
 
