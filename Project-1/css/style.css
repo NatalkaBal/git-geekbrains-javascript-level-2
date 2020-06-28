@@ -30,6 +30,8 @@ span{
     padding: 0 20px;
     background: linear-gradient(to bottom, #f7df1e, #fefdee);
     align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-footer{
@@ -37,6 +39,13 @@ span{
     margin: 20px 0 0 0;
     background: linear-gradient(to bottom, #fefdee, #f7df1e);
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods-list{
+    display: flex;
+    margin: 10px;
 }
 
 .goods-item{
@@ -47,4 +56,81 @@ span{
 
 .goods-item:nth-child(3n+3){
    margin: 0;
+}
+
+.form-wrapper{
+    margin: 10px 0 0 0;
+}
+
+button{
+    display: block;
+    margin: 10px 5px 0 0;
+    padding: 5px;
+    background-color: #fcf4b6;
+    border-radius: 10%;
+    border: 2px solid #fcf4b6;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 14px;
+}
+
+.buy-btn{
+    align-self: flex-start;
+}
+
+button:hover{
+    background-color: #f7df1e;
+    background: linear-gradient(to top, #fcf4b6, #fefdee);
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 15px 0 0 0;
+}
+
+.form-wrapper input{
+    margin: 0 5px 0 0;
+    padding: 5px;
+}
+
+.btn{
+    display: block;
+    background-color: #fcf4b6;
+    border-radius: 10%;
+    border: 2px solid #fcf4b6;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.btn:hover{
+    background-color: #f7df1e;
+    background: linear-gradient(to top, #fcf4b6, #fefdee);
+}
+
+.del-btn{
+    color: red;
+}
+
+.basket{
+    margin: 10px;
+}
+
+table {
+    font-size: 14px;
+    background: #fbfbfd;
+    max-width: 50%;
+    width: 50%;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td {
+    padding: 10px 5px;
+}
+
+.titel-tbl{
+    font-weight: bold;
 }
