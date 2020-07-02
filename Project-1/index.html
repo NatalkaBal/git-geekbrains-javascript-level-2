@@ -26,39 +26,10 @@
         </form>
     </div>
 
-    <div class="basket">
-        <h3 v-if="basket.length !== 0">Корзина</h3>
-        <h3 v-else>Корзина пуста</h3>
-        <table  v-if="basket.length !== 0" class="basket-list">
-            <tr class="titel-tbl">
-                <td>Товар</td>
-                <td>Цена</td>
-                <td></td>
-            </tr>
-            <tr v-for="el_basket in basket">
-                <td>{{ el_basket.product_name }}</td>
-                <td>{{ el_basket.price }}</td>
-                <td><a class="del-btn" @click="deleteProduct(el_basket)">x</a></td>
-            </tr>
-            <tr class="titel-tbl">
-                <td>Cумма товара</td>
-                <td>{{sumGood}}</td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+    <basket :basket="basket"></basket>
 
     <main>
-        <div v-if="goods.length !== 0" class="goods-list">
-            <div class="goods-item" v-for="good in filteredGoods">
-                <h3>{{ good.product_name }}</h3>
-                <span>Цена: {{ good.price }}</span>
-                <button class="buy-btn" @click="addProduct(good)">Добавить в корзину</button>
-            </div>
-        </div>
-        <div v-else class="goods-list">
-            <span>Нет данных</span>
-        </div>
+        <goods-list :goods="filteredGoods"></goods-list>
     </main>
 
 </div>
