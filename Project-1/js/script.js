@@ -50,6 +50,12 @@ Vue.component('basket', {
     `
 });
 
+Vue.component('search-form', {
+    template: `
+        <input type="text" id="search"  placeholder="Search something...">
+    `
+})
+
 let app = new Vue ({
     el: '#app',
 

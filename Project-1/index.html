@@ -20,9 +20,9 @@
 <div id="app">
     <div>
         <form class="form-wrapper">
-            <input type="text" id="search"  placeholder="Search something..." v-model="searchLine">
-            <input class="btn" type="submit" value="Найти" id="submit" @click.prevent="filterGoods()">
-            <input class="btn" type="submit" value="Очистить поиск" id="clear-filter" @click.prevent="clearfilterGoods()">
+            <search-form v-model="searchLine"></search-form>
+            <input class="btn" type="submit" value="Найти" id="submit" v-on:click="filterGoods()">
+            <input class="btn" type="submit" value="Очистить поиск" id="clear-filter" v-on:click="clearfilterGoods()">
         </form>
     </div>
 
