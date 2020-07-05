@@ -1,7 +1,5 @@
 'use strict';
 
-const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
 Vue.component('goods-list', {
     props: ['goods'],
     template: `
@@ -18,9 +16,10 @@ Vue.component('goods-item', {
     props: ['good'],
     template: `
         <div class="goods-item">
-            <h3>{{ good.product_name }}</h3>
+            <h3>{{ good.title }}</h3>
+            <img :src= "good.srcpath" alt="">
             <span>Цена: {{ good.price }}</span>
-            <button class="buy-btn" v-on:click="addProduct(good)" >Добавить в корзину</button>
+            <button class="buy-btn" @click="$parent.$emit('add-product', good)" >Добавить в корзину</button>
         </div>
     `
 });
@@ -28,7 +27,7 @@ Vue.component('goods-item', {
 Vue.component('basket', {
     props: ['basket'],
     template: `     
-        <table  v-if="basket.length !== 0" class="basket-list">
+        <table  v-if="basket.length !== 0" class="basket-list" :basket="basket" >
         <h3>Корзина</h3>
             <tr class="titel-tbl">
                 <td>Товар</td>
@@ -36,13 +35,13 @@ Vue.component('basket', {
                 <td></td>
             </tr>
             <tr v-for="el_basket in basket" :key="el_basket.id_product" :basket="el_basket">
-                <td>{{ el_basket.product_name }}</td>
+                <td>{{ el_basket.title }}</td>
                 <td>{{ el_basket.price }}</td>
-                <td><a class="del-btn" @click="deleteProduct(el_basket)">x</a></td>
+                <td><a class="del-btn" @click="$emit('delete-product', el_basket)">x</a></td>
             </tr>
             <tr class="titel-tbl">
                 <td>Cумма товара</td>
-                <td>{{sumGood}}</td>
+                <td>{{sumGoods}}</td>
                 <td></td>
             </tr>
         </table>
@@ -51,8 +50,10 @@ Vue.component('basket', {
 });
 
 Vue.component('search-form', {
+    props: ['value'],
     template: `
-        <input type="text" id="search"  placeholder="Search something...">
+        <input type="text" id="search"  placeholder="Search something..." v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)">
     `
 })
 
@@ -88,11 +89,32 @@ let app = new Vue ({
          });
         },
 
-        addProduct1(good) {
-            this.basket.push(good);
-            },
+        makePOSTRequest(url, data, callback) {
+            let xhr;
 
-        deleteProduct (good){
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    callback(xhr.responseText);
+                }
+            }
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+            xhr.send(data);
+        },
+
+        addProducts(good){
+            this.basket.push(good);
+        },
+
+        deleteProducts (good){
             this.basket = this.basket.filter(item => item !== good);
         },
 
@@ -102,7 +124,7 @@ let app = new Vue ({
                 this.filteredGoods = this.goods;
             } else {
                 this.filteredGoods = this.goods.filter((el) => {
-                    return el.product_name.toLowerCase().includes(text);
+                    return el.title.toLowerCase().includes(text);
                 });
             }
         },
@@ -124,7 +146,7 @@ let app = new Vue ({
     },
 
     mounted () {
-        this.makeGETRequest(`${API_URL}/catalogData.json`, (goods) => {
+        this.makeGETRequest('/catalogData.json', (goods) => {
             this.goods = JSON.parse(goods);
             this.filteredGoods = JSON.parse(goods);
         });
