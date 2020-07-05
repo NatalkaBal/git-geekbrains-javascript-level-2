@@ -32,12 +32,12 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/macos
 Project-1/.idea/workspace.xml
-node_modules/**/*.node
-node_modules/**/*.o
-node_modules/**/*.a
-node_modules/**/*.mk
-node_modules/**/*.gypi
-node_modules/**/*.target
-node_modules/**/.deps/
-node_modules/**/build/Makefile
-node_modules/**/**/build/Makefile
+Project-1/node_modules/**/*.node
+Project-1/node_modules/**/*.o
+Project-1/node_modules/**/*.a
+Project-1/node_modules/**/*.mk
+Project-1/node_modules/**/*.gypi
+Project-1/node_modules/**/*.target
+Project-1/node_modules/**/.deps/
+Project-1/node_modules/**/build/Makefile
+Project-1/node_modules/**/**/build/Makefile
