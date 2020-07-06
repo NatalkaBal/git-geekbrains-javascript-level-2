@@ -6,6 +6,7 @@
     <title>Интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/7aae2eb976.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js" defer></script>
     <script src="js\script.js" defer></script>
 </head>
 
@@ -16,10 +17,22 @@
     <a class="main-basket" href="#"><i class="fas fa-shopping-basket"></i></a>
 </header>
 
-<main>
-    <div id="basket-list" class="basket-list"></div>
-    <div id="goods-list" class="goods-list"></div>
-</main>
+<div id="app">
+    <div>
+        <form class="form-wrapper">
+            <search-form v-model="searchLine"></search-form>
+            <input class="btn" type="submit" value="Найти" id="submit" @click="filterGoods">
+            <input class="btn" type="submit" value="Очистить поиск" id="clear-filter" @click="clearfilterGoods">
+        </form>
+    </div>
+
+    <basket :basket="basket" @delete-product="deleteProducts"></basket>
+
+    <main>
+        <goods-list :goods="filteredGoods" @add-product="addProducts"></goods-list>
+    </main>
+
+</div>
 
 <footer id="main-footer" class="main-footer">
     <span>&copy; Курсы online</span>

@@ -1,0 +1,8 @@
+[
+    { "id": 1, "title": "Основы ООП", "price": 5000, "srcpath": "img/oop.jpg"},
+    { "id": 2, "title": "CSS", "price": 8000, "srcpath": "img/css.jpg"},
+    { "id": 3, "title": "HTML-5", "price": 10000, "srcpath": "img/HTML5.jpg"},
+    { "id": 4, "title": "JavaScript", "price": 12000, "srcpath": "img/js.jpg"},
+    { "id": 5, "title": "C++", "price": 11000, "srcpath": "img/cpp-basic.jpg"}
+    
+]
