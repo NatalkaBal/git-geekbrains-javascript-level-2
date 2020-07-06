@@ -29,8 +29,26 @@ app.post('/addToCart', (req, res) => {
         } else {
           res.send('{"result": 1}');
         }
+        console.log('Товар добавлен в файл');
       });
     }
+  });
+});
+
+app.post('/updateToCart', (req, res) => {
+  fs.readFile('catalogCart.json', 'utf-8', (err, data) => {
+    if(err) {
+      res.send('{"result": 0}');
+    }
+    const cart = req.body;
+    fs.writeFile('catalogCart.json', JSON.stringify(cart), (err) => {
+      if(err) {
+        res.send('{"result": 0}');
+      } else {
+        res.send('{"result": 1}');
+      }
+      console.log('Событие выполнено');
+    });
   });
 });
 

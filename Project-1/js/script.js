@@ -41,7 +41,7 @@ Vue.component('basket', {
             </tr>
             <tr class="titel-tbl">
                 <td>Cумма товара</td>
-                <td>{{sumGoods}}</td>
+                <td></td>
                 <td></td>
             </tr>
         </table>
@@ -112,10 +112,15 @@ let app = new Vue ({
 
         addProducts(good){
             this.basket.push(good);
+            console.log(good);
+            let stringToWrite;
+            stringToWrite = {id: good.id, title: good.title, price: good.price};
+            this.makePOSTRequest('/addToCart', stringToWrite, (stringToWrite) => {JSON.stringify(stringToWrite)});
         },
 
         deleteProducts (good){
             this.basket = this.basket.filter(item => item !== good);
+            this.makePOSTRequest('/updateCart', this.basket);
         },
 
         filterGoods () {
@@ -132,11 +137,9 @@ let app = new Vue ({
         clearfilterGoods(){
             this.filteredGoods = this.goods;
             this.searchLine = '';
-        }
-    },
+        },
 
-    computed: {
-        sumGoods: function () {
+        sumGoods() {
             let sum = 0;
             this.basket.forEach(({price}) => {
                 sum += price;
