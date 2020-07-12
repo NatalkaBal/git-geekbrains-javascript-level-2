@@ -3,6 +3,34 @@ body{
     margin: 0 auto;
 }
 
+h3 {
+    margin: 10px;
+}
+
+.main-basket{
+    display: flex;
+    position: relative;
+}
+
+.basket-wrapper {
+    display: none;
+    width: 600px;
+    color: black;
+}
+
+.item-basket {
+    display: block;
+    width: 50px;
+    margin: 0 0 0 5px;
+}
+
+.main-basket:hover .basket-wrapper {
+    display: block;
+    position: absolute;
+    left: -260px;
+    top: 25px;
+}
+
 main{
     width: 100%;
 }
@@ -43,6 +71,12 @@ span{
     justify-content: space-between;
 }
 
+.goods-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
 .goods-item{
     display: flex;
     flex-direction: column;
@@ -51,4 +85,82 @@ span{
 
 .goods-item:nth-child(3n+3){
    margin: 0;
+}
+
+.form-wrapper{
+    margin: 10px 0 0 0;
+}
+
+button{
+    display: block;
+    margin: 10px 5px 0 0;
+    padding: 5px;
+    background-color: #fcf4b6;
+    border-radius: 10%;
+    border: 2px solid #fcf4b6;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 14px;
+}
+
+.buy-btn{
+    align-self: flex-start;
+}
+
+button:hover{
+    background-color: #f7df1e;
+    background: linear-gradient(to top, #fcf4b6, #fefdee);
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 15px 0 0 0;
+}
+
+.form-wrapper input{
+    margin: 0 5px 0 0;
+    padding: 5px;
+}
+
+.btn{
+    display: block;
+    background-color: #fcf4b6;
+    border-radius: 10%;
+    border: 2px solid #fcf4b6;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.btn:hover{
+    background-color: #f7df1e;
+    background: linear-gradient(to top, #fcf4b6, #fefdee);
+}
+
+.del-btn{
+    color: red;
+}
+
+.basket{
+    margin: 10px;
+}
+
+table {
+    font-size: 14px;
+    background: linear-gradient(to top, #fffeed, #fefdee);
+    max-width: 50%;
+    width: 50%;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 10px 0 0 0;
+}
+th, td {
+    padding: 10px 5px;
+}
+
+.titel-tbl{
+    font-weight: bold;
 }
